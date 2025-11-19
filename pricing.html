@@ -5,132 +5,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pricing - Chuk</title>
     <style>
+        :root {
+            --bg-color: #09090b;
+            --text-color: #ffffff;
+            --accent-color: #3F5E5D;
+            --accent-hover: #507674;
+            --secondary-text: #a1a1aa;
+            --card-bg: #18181b;
+            --border-color: #27272a;
+            --top-bar-height: 60px;
+        }
+
         * {
             box-sizing: border-box;
         }
-        
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             line-height: 1.6;
-            color: #e0e0e0;
-            background-color: #1a1a1a;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            padding-top: var(--top-bar-height);
         }
-        
-        h1 {
-            font-size: clamp(1.8rem, 5vw, 2.5rem);
-            color: #ffffff;
-            margin-bottom: 10px;
-            font-weight: 300;
-            text-align: center;
+
+        /* Top Navigation Bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--top-bar-height);
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 0 20px;
         }
-        
-        .subtitle {
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            color: #9ca3af;
-            margin-bottom: 40px;
-            text-align: center;
-            padding: 0 15px;
+
+        .nav-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
-        
-        .price-list {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 0 15px;
-        }
-        
-        .price-item {
-            font-size: clamp(2rem, 6vw, 3.5rem);
-            margin-bottom: 20px;
-            font-weight: 600;
-            color: #60a5fa;
-        }
-        
-        .price-value {
-            font-weight: 600;
-            color: #ffffff;
-        }
-        
-        .info-section {
-            text-align: center;
-            margin-bottom: 40px;
-            max-width: 600px;
-            padding: 0 15px;
-        }
-        
-        .info-item {
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            margin-bottom: 15px;
-            color: #d1d5db;
-        }
-        
-        .highlight {
-            font-weight: 600;
-            color: #60a5fa;
-        }
-        
-        .back-link {
-            text-align: center;
-            padding: 0 15px;
-        }
-        
-        .back-link a {
-            color: #60a5fa;
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #fff;
             text-decoration: none;
-            font-size: clamp(1rem, 3vw, 1.1rem);
-            transition: color 0.3s ease;
+            letter-spacing: -0.02em;
         }
-        
-        .back-link a:hover {
-            color: #93c5fd;
-            text-decoration: underline;
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
         }
-        
-        /* Mobile responsiveness */
-        @media (max-width: 480px) {
-            body {
-                padding: 15px;
-            }
-            
-            .subtitle {
-                margin-bottom: 30px;
-            }
-            
-            .price-list {
-                margin-bottom: 30px;
-            }
-            
-            .info-section {
-                margin-bottom: 30px;
-            }
+
+        .nav-link {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            padding: 80px 20px;
+            text-align: center;
+            animation: fadeIn 0.8s ease-out;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 0 0 10px 0;
+            background: linear-gradient(to bottom right, #fff 30%, #a1a1aa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            margin-bottom: 60px;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 48px;
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+        }
+
+        .pricing-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+
+        .price {
+            font-size: 4rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .price-period {
+            color: var(--secondary-text);
+            font-size: 1rem;
+        }
+
+        .features {
+            margin: 32px 0;
+            text-align: left;
+            color: var(--secondary-text);
+            font-size: 0.95rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            gap: 10px;
+        }
+
+        .feature-icon {
+            color: var(--accent-color);
+        }
+
+        .note {
+            margin-top: 24px;
+            font-size: 0.85rem;
+            color: #52525b;
+            border-top: 1px solid var(--border-color);
+            padding-top: 24px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <h1>Pricing</h1>
-    <div class="subtitle">The prices are for now</div>
-    
-    <div class="price-list">
-        <div class="price-item">€20</div>
-    </div>
-    
-    <div class="info-section">
-        <div class="info-item">
-            <span class="highlight">Commission:</span> I take 10% commission, so I make profit
+    <!-- Top Navigation Bar -->
+    <nav class="top-bar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">Chuk Chat</a>
+            <div class="nav-links">
+                <a href="./pricing.html" class="nav-link" style="color: #fff;">Pricing</a>
+                <a href="./downloads.html" class="nav-link">Downloads</a>
+                <a href="./support.html" class="nav-link">Support</a>
+            </div>
         </div>
-        <div class="info-item">
-            <span class="highlight">Tax:</span> Plus 19% tax on top of all prices
+    </nav>
+
+    <div class="container">
+        <h1>Simple Pricing</h1>
+        <p class="subtitle">Transparent costs. No hidden fees.</p>
+        
+        <div class="pricing-card">
+            <div class="price">€20</div>
+            <div class="price-period">per month</div>
+
+            <div class="features">
+                <div class="feature-item">
+                    <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>Full Access to Chuk AI</span>
+                </div>
+                <div class="feature-item">
+                    <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>End-to-End Encryption</span>
+                </div>
+                <div class="feature-item">
+                    <svg class="feature-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    <span>€18 in AI Credits Included</span>
+                </div>
+            </div>
+
+            <div class="note">
+                Includes 19% VAT.<br>
+                We take a 10% commission to keep the lights on.
+            </div>
         </div>
-    </div>
-    
-    <div class="back-link">
-        <a href="./index.html">← Back to Home</a> | <a href="./support.html">Support</a>
+
+        <footer class="footer">
+            <span style="color: #52525b;">&copy; 2025 Chuk</span>
+        </footer>
     </div>
 </body>
 </html>

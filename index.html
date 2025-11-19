@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chuk - The Future of Chat</title>
+    <title>Chuk Chat — Private AI That Actually Belongs to You</title>
     <style>
         :root {
             --bg-color: #09090b;
@@ -13,6 +13,7 @@
             --secondary-text: #a1a1aa;
             --card-bg: #18181b;
             --border-color: #27272a;
+            --top-bar-height: 60px;
         }
 
         * {
@@ -29,14 +30,63 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            padding-top: var(--top-bar-height);
+        }
+
+        /* Top Navigation Bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--top-bar-height);
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
             padding: 0 20px;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-link {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fff;
         }
 
         .container {
             width: 100%;
             max-width: 900px;
-            padding: 80px 0;
-            text-align: center;
+            padding: 40px 20px;
             animation: fadeIn 0.8s ease-out;
         }
 
@@ -45,27 +95,54 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Hero Section */
+        /* Typography */
+        h1, h2, h3 {
+            margin: 0;
+            line-height: 1.2;
+        }
+
         h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             letter-spacing: -0.03em;
-            margin: 0 0 20px 0;
-            line-height: 1.1;
+            margin-bottom: 24px;
             background: linear-gradient(to bottom right, #fff 30%, #a1a1aa);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #fff;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        p {
+            margin: 0 0 24px 0;
+            color: var(--secondary-text);
+            font-size: 1.1rem;
         }
 
         .subtitle {
             font-size: 1.25rem;
             color: var(--secondary-text);
             margin-bottom: 48px;
-            font-weight: 400;
-            max-width: 600px;
+            text-align: center;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
+            font-weight: 500;
         }
 
         .badge {
@@ -75,10 +152,14 @@
             color: #8cbdbb;
             border-radius: 9999px;
             font-size: 0.875rem;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 32px;
             border: 1px solid rgba(63, 94, 93, 0.3);
             backdrop-filter: blur(4px);
+        }
+
+        .center-wrapper {
+            text-align: center;
         }
 
         /* Form Section */
@@ -113,6 +194,7 @@
             font-size: 1rem;
             outline: none;
             min-width: 0;
+            font-weight: 500;
         }
 
         input[type="email"]::placeholder {
@@ -125,7 +207,7 @@
             border: none;
             border-radius: 8px;
             padding: 10px 24px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.95rem;
             cursor: pointer;
             transition: all 0.2s;
@@ -147,52 +229,122 @@
             color: #4ade80;
             padding: 16px;
             border-radius: 12px;
-            font-weight: 500;
+            font-weight: 600;
             display: none;
             animation: fadeIn 0.3s ease-out;
+            margin-top: 20px;
+            text-align: center;
         }
 
-        /* Preview Section */
-        .preview-grid {
+        /* Grid Sections */
+        .section {
+            margin-bottom: 100px;
+        }
+
+        .features-grid {
             display: grid;
-            gap: 30px;
-            grid-template-columns: 1fr;
-            width: 100%;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
         }
 
-        .preview-card {
+        .feature-card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
             border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            transition: transform 0.3s ease;
-        }
-        
-        .preview-card:hover {
-            transform: translateY(-5px);
+            padding: 32px;
+            transition: transform 0.2s;
         }
 
-        .preview-card img {
+        .feature-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,0.1);
+        }
+        
+        .feature-card p {
+            font-weight: 500;
+        }
+
+        .text-block {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .text-block p {
+            font-weight: 500;
+        }
+
+        .platforms-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .platform-item {
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Preview Images */
+        .preview-wrapper {
+            position: relative;
+            margin: 60px auto 100px auto; /* Added significant bottom margin */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .desktop-image-container {
+            position: relative;
+            z-index: 2;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.6);
+            width: 100%;
+        }
+
+        .desktop-image-container img {
             width: 100%;
             height: auto;
             display: block;
         }
 
-        .mobile-wrapper {
-            max-width: 300px;
-            margin: 0 auto;
+        .mobile-image-overlay {
+            position: absolute;
+            bottom: -40px;
+            right: -20px;
+            width: 25%;
+            max-width: 200px;
+            z-index: 3;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(0,0,0,0.6);
         }
 
-        /* Links */
+        .mobile-image-overlay img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Footer */
         .footer {
-            margin-top: 80px;
             padding-top: 40px;
+            padding-bottom: 40px; /* Added padding bottom */
             border-top: 1px solid var(--border-color);
             display: flex;
             justify-content: center;
             gap: 32px;
             width: 100%;
+            margin-top: 80px;
         }
 
         .footer a {
@@ -208,7 +360,6 @@
 
         @media (max-width: 768px) {
             h1 { font-size: 2.5rem; }
-            .container { padding: 40px 0; }
             .waitlist-form { 
                 flex-direction: column; 
                 background: transparent;
@@ -229,17 +380,42 @@
                 width: 100%;
                 padding: 14px;
             }
+            
+            .mobile-image-overlay {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                width: 60%;
+                margin-top: -40px;
+                margin-left: auto;
+            }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="badge">Expected • 12.11.2025</div>
-        
-        <h1>Simplicity is the<br>ultimate sophistication.</h1>
-        <p class="subtitle">We are building Chuk to bring clarity back to your conversations. <br>Fast, private, and beautifully designed.</p>
+    <!-- Top Navigation Bar -->
+    <nav class="top-bar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">Chuk Chat</a>
+            <div class="nav-links">
+                <a href="./pricing.html" class="nav-link">Pricing</a>
+                <a href="./downloads.html" class="nav-link">Downloads</a>
+                <a href="./support.html" class="nav-link">Support</a>
+            </div>
+        </div>
+    </nav>
 
+    <div class="container">
+        <div class="center-wrapper" style="margin-top: 40px;">
+            <div class="badge">I am working on it • 19.11.2025</div>
+        </div>
+        
+        <!-- Hero Section -->
+        <h1>Chuk Chat — Private AI That<br>Actually Belongs to You</h1>
+        <p class="subtitle">A simple monthly subscription, full control, no data mining.<br>Chat, write, code, research — powered entirely by transparent open-weight models.</p>
+
+        <!-- Waitlist Form -->
         <div class="waitlist-container">
             <div id="form-wrapper">
                 <iframe name="hidden-iframe" id="hidden-iframe" style="display: none;"></iframe>
@@ -251,7 +427,6 @@
                     <input type="email" name="email" placeholder="Enter your email address..." required>
                     <button type="submit" id="submit-btn">Get Early Access</button>
                 </form>
-                <p style="margin-top: 12px; color: #52525b; font-size: 0.85rem;">Join the waitlist to be notified when we launch.</p>
             </div>
             
             <div id="success-message" class="success-message">
@@ -259,19 +434,54 @@
             </div>
         </div>
 
-        <div class="preview-grid">
-            <div class="preview-card">
+        <!-- Screenshot Preview (Moved Up) -->
+        <div class="preview-wrapper">
+            <div class="desktop-image-container">
                 <img src="desktop.png" alt="Desktop Interface Preview">
             </div>
-            
-            <div class="preview-card mobile-wrapper">
+            <div class="mobile-image-overlay">
                 <img src="mobile-screenshot.png" alt="Mobile Interface Preview">
             </div>
         </div>
 
+        <!-- Why Chuk Chat? -->
+        <div class="section">
+            <h2>Why Chuk Chat?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Clear Monthly Pricing</h3>
+                    <p>One straightforward monthly fee. No pay-as-you-go, no token stress, no hidden costs.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Open-Weight-Only</h3>
+                    <p>We use only open models — no black boxes and no silent data collection. You know exactly what runs your AI.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Privacy First</h3>
+                    <p>Encrypted chats, no tracking, no profiling. Chuk Chat is built like a tool, not a marketing funnel.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Simple, Focused Features</h3>
+                    <p>Write, generate, brainstorm, study, research, code — all in a clean, distraction-free interface.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cross-Platform (Removed Screenshot from here) -->
+        
+        <!-- Your Data Stays Yours -->
+        <div class="section text-block">
+            <h2>Your Data Stays Yours</h2>
+            <p>We store nothing you don’t want.<br>Fully deletable. Fully controllable. Fully yours.</p>
+        </div>
+
+        <!-- Try It Out -->
+        <div class="section text-block">
+            <h2>Try It Out</h2>
+            <p>A privacy-focused AI experience built on open-weight models.<br>Download Chuk Chat today and get started.</p>
+        </div>
+
         <footer class="footer">
-            <a href="./pricing.html">Pricing</a>
-            <a href="./support.html">Support</a>
             <span style="color: #52525b;">&copy; 2025 Chuk</span>
         </footer>
     </div>

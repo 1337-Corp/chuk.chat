@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - Chuk Chat</title>
+    <style>
+        :root {
+            --bg-color: #09090b;
+            --text-color: #ffffff;
+            --accent-color: #3F5E5D;
+            --accent-hover: #507674;
+            --secondary-text: #a1a1aa;
+            --card-bg: #18181b;
+            --border-color: #27272a;
+            --top-bar-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: var(--top-bar-height);
+        }
+
+        /* Top Navigation Bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--top-bar-height);
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.2rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-link {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            padding: 80px 20px;
+            animation: fadeIn 0.8s ease-out;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin: 0 0 20px 0;
+            background: linear-gradient(to bottom right, #fff 30%, #a1a1aa);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-align: center;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            margin-bottom: 60px;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            width: 100%;
+            margin-bottom: 60px;
+        }
+
+        .download-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px -10px rgba(63, 94, 93, 0.2);
+        }
+
+        .os-icon {
+            width: 48px;
+            height: 48px;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .os-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .os-version {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+            margin-bottom: 24px;
+        }
+
+        .download-btn {
+            background: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+            width: 100%;
+            border: 1px solid transparent;
+        }
+
+        .download-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .download-btn.disabled {
+            background: rgba(255,255,255,0.05);
+            color: var(--secondary-text);
+            cursor: not-allowed;
+            border: 1px solid var(--border-color);
+        }
+
+        .coming-soon-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 0.75rem;
+            background: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 99px;
+            color: var(--secondary-text);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: auto;
+            padding-top: 40px;
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-bar">
+        <div class="nav-container">
+            <a href="./index.html" class="logo">Chuk Chat</a>
+            <div class="nav-links">
+                <a href="./pricing.html" class="nav-link">Pricing</a>
+                <a href="./downloads.html" class="nav-link" style="color: #fff;">Downloads</a>
+                <a href="./support.html" class="nav-link">Support</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Download Chuk</h1>
+        <p class="subtitle">One account, same experience on every device. Your conversations sync securely across all platforms.</p>
+        
+        <div class="downloads-grid">
+            <!-- Windows -->
+            <div class="download-card">
+                <svg class="os-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M3 12V6.75L9 5.25V12H3ZM3 17.25V12H9V18.75L3 17.25ZM10 5V12H21V3.5L10 5ZM10 12V19L21 20.5V12H10Z"/></svg>
+                <div class="os-name">Windows</div>
+                <div class="os-version">Windows 10/11 (x64)</div>
+                <a href="#" class="download-btn disabled">Coming Soon</a>
+            </div>
+
+            <!-- macOS -->
+            <div class="download-card">
+                <svg class="os-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.3377 13.313C17.3637 11.047 19.2384 9.65865 19.3347 9.60265C18.192 7.94332 16.417 7.68265 15.8087 7.65599C14.302 7.49999 12.839 8.54399 12.069 8.54399C11.2904 8.54399 10.1057 7.67332 8.84235 7.69465C7.18902 7.71599 5.65368 8.65599 4.81368 10.1147C3.07568 13.1253 4.37302 17.5853 6.05302 20.0147C6.88368 21.204 7.85435 22.5347 9.16235 22.4867C10.425 22.4373 10.901 21.6827 12.4624 21.6827C14.0144 21.6827 14.4397 22.4867 15.7844 22.4613C17.1564 22.4133 18.0377 21.1893 18.851 19.996C19.8024 18.6053 20.2024 17.2547 20.2224 17.1747C20.205 17.1653 17.3037 16.056 17.3377 13.313ZM14.8984 5.74932C15.6037 4.89599 16.0784 3.70799 15.9477 2.53199C14.909 2.57599 13.6477 3.22532 12.893 4.08132C12.2144 4.84665 11.621 6.05999 11.7757 7.22265C12.9357 7.31332 14.1917 6.60399 14.8984 5.74932Z"/></svg>
+                <div class="os-name">macOS</div>
+                <div class="os-version">Apple Silicon & Intel</div>
+                <a href="#" class="download-btn disabled">Coming Soon</a>
+            </div>
+
+            <!-- Linux -->
+            <div class="download-card">
+                <svg class="os-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M18.2 18.84C17.6 18.84 17.11 18.35 17.11 17.75V17.59C17.11 17.19 17.34 16.84 17.69 16.68C17.36 16.04 16.69 15.5 16.69 14.46C16.69 14.14 16.74 13.83 16.84 13.54C16.45 13.59 16.05 13.62 15.64 13.62C15.5 13.62 15.35 13.62 15.2 13.61C15.2 13.4 15.2 13.19 15.2 13C15.2 11.37 14.79 9.77 14 8.2C14 8.2 14 8.2 14.03 8.19C14.35 7.34 14.66 6.12 14.25 5.04C13.92 4.15 12.82 4 12.82 4C12.62 2.76 11.37 2 10 2C8.63 2 7.38 2.76 7.18 4C7.18 4 6.08 4.15 5.75 5.04C5.34 6.12 5.65 7.34 5.97 8.19C6 8.2 6 8.2 6 8.2C5.21 9.77 4.8 11.37 4.8 13C4.8 13.19 4.8 13.4 4.8 13.61C4.65 13.62 4.5 13.62 4.36 13.62C3.95 13.62 3.55 13.59 3.16 13.54C3.26 13.83 3.31 14.14 3.31 14.46C3.31 15.5 2.64 16.04 2.31 16.68C2.66 16.84 2.89 17.19 2.89 17.59V17.75C2.89 18.35 2.4 18.84 1.8 18.84H1.5V20.25C1.5 21.21 2.29 22 3.25 22H6.41C6.68 21.23 7.41 20.68 8.27 20.68C9.3 20.68 10.13 21.5 10.13 22.5V22.75H13.87V22.5C13.87 21.5 14.7 20.68 15.73 20.68C16.59 20.68 17.32 21.23 17.59 22H20.75C21.71 22 22.5 21.21 22.5 20.25V18.84H18.2Z"/></svg>
+                <div class="os-name">Linux</div>
+                <div class="os-version">.deb, .rpm, .AppImage</div>
+                <a href="#" class="download-btn disabled">Coming Soon</a>
+            </div>
+
+            <!-- Mobile -->
+            <div class="download-card">
+                <svg class="os-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17 1.01L7 1C5.9 1 5 1.9 5 3V21C5 22.1 5.9 23 7 23H17C18.1 23 19 22.1 19 21V3C19 1.9 18.1 1.01 17 1.01ZM17 19H7V5H17V19Z"/></svg>
+                <div class="os-name">Mobile</div>
+                <div class="os-version">iOS & Android</div>
+                <a href="#" class="download-btn disabled">Coming Soon</a>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <span style="color: #52525b;">&copy; 2025 Chuk</span>
+        </footer>
+    </div>
+</body>
+</html>
