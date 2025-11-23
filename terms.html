@@ -150,6 +150,33 @@
         .section {
             margin-bottom: 2rem;
         }
+
+        .lang-switcher {
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+
+        .lang-switcher a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            margin: 0 6px;
+            transition: color 0.2s;
+        }
+
+        .lang-switcher a:hover {
+            color: var(--accent-hover);
+        }
+
+        .lang-switcher a.active {
+            color: var(--accent-hover);
+            font-weight: 600;
+        }
     </style>
 </head>
 <body>
@@ -163,6 +190,11 @@
                 <a href="/support.html" class="nav-link">Support</a>
             </div>
         </div>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <a href="/terms.html" class="active">English</a> | <a href="/terms-de.html">Deutsch</a>
     </div>
 
     <div class="container">

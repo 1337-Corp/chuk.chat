@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutzungsbedingungen - chuk.chat</title>
+    <style>
+        :root {
+            --bg-color: #09090b;
+            --text-color: #ffffff;
+            --accent-color: #3F5E5D;
+            --accent-hover: #507674;
+            --secondary-text: #a1a1aa;
+            --card-bg: rgba(24, 24, 27, 0.6);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --card-hover-border: rgba(255, 255, 255, 0.15);
+            --top-bar-height: 60px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 0%, rgba(63, 94, 93, 0.15) 0%, transparent 70%);
+            background-attachment: fixed;
+            color: var(--text-color);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: var(--top-bar-height);
+        }
+
+        /* Top Navigation Bar */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--top-bar-height);
+            background: rgba(9, 9, 11, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.3rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: -0.03em;
+            transition: opacity 0.2s;
+        }
+
+        .logo:hover {
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-link {
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+        }
+
+        .nav-link.active {
+            color: #fff;
+        }
+
+        .lang-switcher {
+            position: absolute;
+            top: 70px;
+            right: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+
+        .lang-switcher a {
+            color: var(--secondary-text);
+            text-decoration: none;
+            margin: 0 6px;
+            transition: color 0.2s;
+        }
+
+        .lang-switcher a:hover {
+            color: var(--accent-hover);
+        }
+
+        .lang-switcher a.active {
+            color: var(--accent-hover);
+            font-weight: 600;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .updated {
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--accent-hover);
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--secondary-text);
+        }
+
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            color: var(--secondary-text);
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent-hover);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <div class="top-bar">
+        <div class="nav-container">
+            <a href="/" class="logo">chuk.chat</a>
+            <div class="nav-links">
+                <a href="/pricing.html" class="nav-link">Preise</a>
+                <a href="/downloads.html" class="nav-link">Downloads</a>
+                <a href="/support.html" class="nav-link">Support</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Switcher -->
+    <div class="lang-switcher">
+        <a href="/terms.html">English</a> | <a href="/terms-de.html" class="active">Deutsch</a>
+    </div>
+
+    <div class="container">
+        <h1>Nutzungsbedingungen</h1>
+        <p class="updated">Zuletzt aktualisiert: 23. November 2025</p>
+
+        <div class="section">
+            <h2>1. Annahme der Nutzungsbedingungen</h2>
+            <p>
+                Durch die Erstellung eines Kontos und die Nutzung von chuk.chat ("der Dienst") erklären Sie sich mit diesen Nutzungsbedingungen einverstanden.
+                Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie den Dienst bitte nicht.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>2. Beschreibung des Dienstes</h2>
+            <p>
+                chuk.chat ist eine KI-gestützte Chat-Anwendung, die es Ihnen ermöglicht, mit open-weight KI-Modellen zu interagieren.
+                Der Dienst bietet:
+            </p>
+            <ul>
+                <li>Zugriff auf mehrere open-weight KI-Sprachmodelle (z.B. Llama, Mistral, Qwen, DeepSeek)</li>
+                <li>Ende-zu-Ende-verschlüsselte Chat-Speicherung</li>
+                <li>Plattformübergreifende Synchronisation</li>
+                <li>Dateianhänge und Bildverarbeitung</li>
+                <li>Sprach- und Videokommunikation (demnächst)</li>
+            </ul>
+            <p>
+                <strong>Hinweis:</strong> Wir unterstützen nur open-weight Modelle. Geschlossene/proprietäre Modelle wie Claude, GPT-4
+                und Gemini sind auf chuk.chat nicht verfügbar.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>3. Benutzerkonten und Registrierung</h2>
+            <p>
+                Um den Dienst zu nutzen, müssen Sie ein Konto erstellen. Sie verpflichten sich:
+            </p>
+            <ul>
+                <li>Genaue und vollständige Registrierungsinformationen anzugeben</li>
+                <li>Die Sicherheit Ihres Passworts und Kontos zu gewährleisten</li>
+                <li>Uns unverzüglich über jede unbefugte Nutzung Ihres Kontos zu informieren</li>
+                <li>Die Verantwortung für alle Aktivitäten zu übernehmen, die unter Ihrem Konto stattfinden</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. Akzeptable Nutzung</h2>
+            <p>Sie verpflichten sich, den Dienst nicht zu nutzen, um:</p>
+            <ul>
+                <li>Gegen geltende Gesetze oder Vorschriften zu verstoßen</li>
+                <li>Geistige Eigentumsrechte anderer zu verletzen</li>
+                <li>Inhalte zu übertragen, die in Ihrer Gerichtsbarkeit illegal sind</li>
+                <li>Unbefugten Zugriff auf den Dienst oder die Konten anderer Benutzer zu erlangen</li>
+                <li>Automatisierte Systeme zu verwenden, um ohne Erlaubnis auf den Dienst zuzugreifen</li>
+                <li>Inhalte zu generieren, die gegen die Bedingungen unserer KI-Anbieter (OpenRouter und open-weight Modellanbieter) verstoßen -
+                    dazu gehören unter anderem: Inhalte, die illegale Aktivitäten fördern, Malware generieren
+                    oder andere Verwendungen, die durch die Nutzungsbedingungen der Anbieter verboten sind</li>
+            </ul>
+            <p>
+                <strong>Hinweis:</strong> OpenRouter und open-weight Modellanbieter haben ihre eigenen Inhaltsrichtlinien.
+                Verstöße gegen deren Bedingungen können zur Kündigung Ihres chuk.chat-Kontos führen, um unseren API-Zugang aufrechtzuerhalten.
+                Wir überwachen Ihre verschlüsselten Chats nicht aktiv.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>5. Drittanbieterdienste</h2>
+            <p>
+                chuk.chat nutzt Drittanbieterdienste, um seine Funktionalität bereitzustellen. Durch die Nutzung von chuk.chat
+                verpflichten Sie sich auch, die Geschäftsbedingungen dieser Drittanbieter einzuhalten:
+            </p>
+            <ul>
+                <li><strong>OpenRouter:</strong> KI-Modell-Routing mit deaktiviertem Modelltraining (nur open-weight Modelle).
+                    Sie müssen die <a href="https://openrouter.ai/terms" target="_blank" rel="noopener noreferrer">Nutzungsbedingungen von OpenRouter</a>
+                    und die Bedingungen der open-weight Modellanbieter (Meta/Llama, Mistral, Qwen, DeepSeek usw.) einhalten.
+                    Wir unterstützen keine geschlossenen/proprietären Modelle. <a href="https://openrouter.ai/" target="_blank" rel="noopener noreferrer">Website</a>
+                </li>
+                <li><strong>Groq:</strong> Sprach-zu-Text-Transkription mit Whisper. Sie müssen die
+                    <a href="https://groq.com/terms-of-use/" target="_blank" rel="noopener noreferrer">Nutzungsbedingungen von Groq</a> einhalten |
+                    <a href="https://groq.com/" target="_blank" rel="noopener noreferrer">Website</a>.
+                </li>
+                <li><strong>Inworld:</strong> Text-zu-Sprache-Generierung. Sie müssen die
+                    <a href="https://www.inworld.ai/terms-of-service" target="_blank" rel="noopener noreferrer">Nutzungsbedingungen von Inworld</a> einhalten |
+                    <a href="https://www.inworld.ai/" target="_blank" rel="noopener noreferrer">Website</a>.
+                </li>
+                <li><strong>LiveKit:</strong> Echtzeit-Sprach- und Videokommunikation (demnächst). Sie müssen die
+                    <a href="https://livekit.io/legal/terms-of-service" target="_blank" rel="noopener noreferrer">Nutzungsbedingungen von LiveKit</a> einhalten |
+                    <a href="https://livekit.io/" target="_blank" rel="noopener noreferrer">Website</a>.
+                </li>
+                <li><strong>Supabase:</strong> Authentifizierung und Datenbankinfrastruktur. Sie müssen die
+                    <a href="https://supabase.com/terms" target="_blank" rel="noopener noreferrer">Nutzungsbedingungen von Supabase</a> einhalten |
+                    <a href="https://supabase.com/" target="_blank" rel="noopener noreferrer">Website</a>.
+                </li>
+                <li><strong>Stripe:</strong> Zahlungsabwicklung. Sie müssen die
+                    <a href="https://stripe.com/legal/consumer" target="_blank" rel="noopener noreferrer">Servicevereinbarung von Stripe</a> einhalten |
+                    <a href="https://stripe.com/" target="_blank" rel="noopener noreferrer">Website</a>.
+                </li>
+                <li><strong>Lexoffice:</strong> Rechnungserstellung für die Abrechnung. Sie müssen die
+                    <a href="https://www.lexoffice.de/agb/" target="_blank" rel="noopener noreferrer">AGB von Lexoffice</a> einhalten |
+                    <a href="https://www.lexoffice.de/" target="_blank" rel="noopener noreferrer">Website</a>.
+                </li>
+                <li><strong>Mailbox.org:</strong> E-Mail-Dienst für Transaktions-E-Mails. Sie müssen die
+                    <a href="https://mailbox.org/en/terms" target="_blank" rel="noopener noreferrer">Nutzungsbedingungen von Mailbox.org</a> einhalten |
+                    <a href="https://mailbox.org/en/" target="_blank" rel="noopener noreferrer">Website</a>.
+                </li>
+            </ul>
+            <p>
+                Wir sind nicht verantwortlich für die Bedingungen, Richtlinien oder Handlungen dieser Drittanbieterdienste.
+                Verstöße gegen Drittanbieterbedingungen können zur Kündigung Ihres chuk.chat-Kontos führen, um
+                unseren API-Zugang aufrechtzuerhalten.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>6. Abonnement und Zahlungen</h2>
+            <p>
+                Einige Funktionen des Dienstes erfordern möglicherweise ein kostenpflichtiges Abonnement. Durch das Abonnieren verpflichten Sie sich:
+            </p>
+            <ul>
+                <li>Alle geltenden Gebühren wie auf unserer Preisseite beschrieben zu zahlen</li>
+                <li>Genaue Zahlungsinformationen anzugeben</li>
+                <li>Zu verstehen, dass Abonnements automatisch verlängert werden, sofern nicht gekündigt</li>
+                <li>Ihr Abonnement über die In-App-Einstellungen oder die Website zu kündigen</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>7. Geistiges Eigentum</h2>
+            <p>
+                Der Dienst und seine ursprünglichen Inhalte, Funktionen und Funktionalität sind Eigentum von chuk.chat und sind
+                durch internationale Urheber-, Marken- und andere geistige Eigentumsrechte geschützt.
+            </p>
+            <p>
+                Inhalte, die Sie mit dem Dienst erstellen, bleiben Ihr Eigentum. KI-generierte Antworten werden jedoch von
+                Drittanbieter-KI-Modellen erstellt und sind möglicherweise nicht in allen Gerichtsbarkeiten urheberrechtlich geschützt.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>8. Datenschutz und Sicherheit</h2>
+            <p>
+                Ihre Privatsphäre ist uns wichtig. Chat-Nachrichten werden Ende-zu-Ende-verschlüsselt, bevor sie gespeichert werden.
+                Kontoinformationen (E-Mail, Benutzername) werden im Standarddatenbankformat (nicht verschlüsselt) gespeichert.
+                Bitte lesen Sie unsere <a href="/privacy-de.html">Datenschutzerklärung</a> für detaillierte Informationen darüber,
+                wie wir Ihre Daten sammeln, verwenden und schützen.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>9. Einschränkungen von KI-Modellen</h2>
+            <p>
+                Die über den Dienst zugänglichen KI-Modelle haben Einschränkungen und können:
+            </p>
+            <ul>
+                <li>Ungenaue oder irreführende Informationen generieren</li>
+                <li>Voreingenommene oder unangemessene Inhalte produzieren</li>
+                <li>In bestimmten Situationen Kontext oder Nuancen nicht verstehen</li>
+            </ul>
+            <p>
+                Sie sollten wichtige Informationen aus maßgeblichen Quellen überprüfen und Ihr Urteilsvermögen verwenden, wenn
+                Sie sich auf KI-generierte Inhalte verlassen.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>10. Dienstverfügbarkeit</h2>
+            <p>
+                Wir bemühen uns, einen zuverlässigen Dienst bereitzustellen, garantieren jedoch nicht, dass der Dienst
+                jederzeit verfügbar sein wird. Wir können den Dienst für Wartung, Updates
+                oder aus anderen Gründen ohne vorherige Ankündigung aussetzen oder beenden.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>11. Haftungsbeschränkung</h2>
+            <p>
+                Im gesetzlich zulässigen Umfang haftet chuk.chat nicht für indirekte,
+                zufällige, besondere, Folge- oder Strafschäden, einschließlich Gewinn-, Daten-
+                oder sonstiger immaterieller Verluste, die sich ergeben aus:
+            </p>
+            <ul>
+                <li>Ihrer Nutzung oder Unfähigkeit, den Dienst zu nutzen</li>
+                <li>Unbefugtem Zugriff auf oder Nutzung unserer Server</li>
+                <li>Bugs, Viren oder anderem schädlichen Code, der über den Dienst übertragen wird</li>
+                <li>Von KI-Modellen generierten Inhalten</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>12. Kündigung</h2>
+            <p>
+                Wir behalten uns das Recht vor, Ihr Konto jederzeit bei Verstößen gegen diese
+                Nutzungsbedingungen auszusetzen oder zu kündigen. Bei Kündigung erlischt Ihr Recht zur Nutzung des Dienstes sofort.
+            </p>
+            <p>
+                Sie können Ihr Konto jederzeit über die Kontoeinstellungen oder durch Kontaktaufnahme mit dem Support kündigen.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>13. Änderungen der Nutzungsbedingungen</h2>
+            <p>
+                Wir behalten uns das Recht vor, diese Nutzungsbedingungen jederzeit zu ändern. Wir werden Benutzer über
+                wesentliche Änderungen per E-Mail oder In-App-Benachrichtigung informieren. Die fortgesetzte Nutzung des Dienstes nach
+                Änderungen gilt als Annahme der geänderten Bedingungen.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>14. Anwendbares Recht</h2>
+            <p>
+                Diese Bedingungen unterliegen den geltenden Gesetzen und sind nach diesen auszulegen, ohne
+                Rücksicht auf Kollisionsrecht-Prinzipien.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>15. Kontaktinformationen</h2>
+            <p>
+                Wenn Sie Fragen zu diesen Nutzungsbedingungen haben, kontaktieren Sie uns bitte unter:
+            </p>
+            <p>
+                <a href="mailto:support@chuk.chat">support@chuk.chat</a>
+            </p>
+        </div>
+
+        <div class="section">
+            <p style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--card-border);">
+                <a href="/privacy-de.html">Datenschutzerklärung</a> |
+                <a href="/support.html">Support</a> |
+                <a href="/">Startseite</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
