@@ -218,25 +218,35 @@
             </ul>
 
             <h3 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">2.3 Usage Information</h3>
-            <p>We may collect:</p>
+            <p>We collect minimal usage data:</p>
             <ul>
-                <li>Device type and operating system</li>
-                <li>App version and platform (desktop/mobile)</li>
                 <li>Subscription status and payment information (processed securely via Stripe)</li>
-                <li>Error logs and crash reports (anonymized)</li>
             </ul>
+            <p>
+                <strong>We do NOT collect:</strong> Device information, operating system details, app version,
+                platform type, error logs, crash reports, or analytics data.
+            </p>
 
             <h3 style="font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 0.5rem;">2.4 Third-Party AI Services</h3>
             <p>
-                When you interact with AI models through our service, your messages are sent to third-party
-                AI providers (such as OpenAI, Anthropic, Google, etc.). These providers process your messages
-                to generate responses. Please review their respective privacy policies:
+                When you use AI features, your data is processed by specialized third-party services:
             </p>
             <ul>
-                <li>Your prompts and AI responses pass through our API but are not stored in plaintext</li>
-                <li>Third-party AI providers may have their own data retention policies</li>
-                <li>We recommend not sharing sensitive personal information in AI conversations</li>
+                <li><strong>Text Generation (LLMs):</strong> Messages are sent to OpenRouter, which routes them to AI providers
+                    (OpenAI, Anthropic, Google, Meta, etc.). <strong>Model training is disabled</strong> - your data is not used
+                    to train AI models.
+                </li>
+                <li><strong>Speech-to-Text:</strong> Audio is processed by Whisper running on Groq infrastructure for
+                    transcription. Audio is not stored after transcription.
+                </li>
+                <li><strong>Text-to-Speech:</strong> Text is converted to speech using Inworld TTS. Generated audio
+                    is delivered to you but not stored on our servers.
+                </li>
             </ul>
+            <p>
+                <strong>Important:</strong> Your prompts and AI responses pass through our API but are not stored in plaintext
+                on our servers (only encrypted). We recommend not sharing sensitive personal information in AI conversations.
+            </p>
         </div>
 
         <div class="section">
@@ -276,8 +286,10 @@
                 <li><strong>Account Data:</strong> Retained until you delete your account</li>
                 <li><strong>Chat Data:</strong> Stored encrypted until you manually delete individual chats</li>
                 <li><strong>Payment Information:</strong> Stored securely by Stripe (our payment processor)</li>
-                <li><strong>Logs:</strong> Error and access logs are retained for 30 days for troubleshooting</li>
             </ul>
+            <p>
+                We do not retain error logs, crash reports, or access logs on our servers.
+            </p>
         </div>
 
         <div class="section">
@@ -331,19 +343,26 @@
             <h2>10. Third-Party Services</h2>
             <p>We use the following third-party services:</p>
             <ul>
-                <li><strong>OpenRouter:</strong> AI model routing and access (your prompts are sent to OpenRouter and then to AI providers).
+                <li><strong>OpenRouter:</strong> AI model routing and access. Your prompts are sent to OpenRouter with model training disabled.
                     Review <a href="https://openrouter.ai/privacy" target="_blank" rel="noopener noreferrer">OpenRouter's Privacy Policy</a>.
                 </li>
-                <li><strong>Supabase:</strong> Database and authentication (encrypted data storage).
+                <li><strong>Groq:</strong> Speech-to-text transcription using Whisper. Audio is processed but not stored.
+                    Review <a href="https://groq.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Groq's Privacy Policy</a>.
+                </li>
+                <li><strong>Inworld:</strong> Text-to-speech generation. Generated audio is not stored on our servers.
+                    Review <a href="https://www.inworld.ai/privacy-policy" target="_blank" rel="noopener noreferrer">Inworld's Privacy Policy</a>.
+                </li>
+                <li><strong>Supabase:</strong> Database and authentication (encrypted data storage only).
                     Review <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Supabase's Privacy Policy</a>.
                 </li>
                 <li><strong>Stripe:</strong> Payment processing (we never store full credit card numbers).
                     Review <a href="https://stripe.com/privacy" target="_blank" rel="noopener noreferrer">Stripe's Privacy Policy</a>.
                 </li>
-                <li><strong>AI Model Providers:</strong> OpenAI, Anthropic, Google, Meta, etc. Each has their own data retention policies.
-                    Your prompts may be processed by these providers through OpenRouter.
-                </li>
             </ul>
+            <p>
+                <strong>AI Model Providers:</strong> OpenAI, Anthropic, Google, Meta, etc. - Your prompts are routed through
+                OpenRouter to these providers with model training disabled. Each provider has their own privacy policies.
+            </p>
             <p>
                 These services have their own privacy policies, which we encourage you to review. We are not responsible
                 for how these third-party services handle your data.
