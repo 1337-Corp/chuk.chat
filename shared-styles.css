@@ -23,7 +23,7 @@
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
+    font-size: 16px;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -60,7 +60,7 @@ body {
 
 .logo {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
     color: var(--text-color);
     text-decoration: none;
     transition: color 0.2s;
@@ -78,7 +78,7 @@ body {
 .nav-link {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
     transition: color 0.2s;
 }
 
@@ -111,31 +111,31 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 42px;
+    margin-bottom: 24px;
+    color: var(--text-color);
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--text-color);
+}
+
+h2 {
+    font-size: 30px;
     margin-bottom: 20px;
     color: var(--text-color);
     padding-bottom: 12px;
     border-bottom: 2px solid var(--text-color);
 }
 
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: var(--text-color);
-    padding-bottom: 10px;
-    border-bottom: 2px solid var(--text-color);
-}
-
 h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 12px;
     color: var(--text-color);
 }
 
 p {
-    margin: 0 0 16px 0;
+    margin: 0 0 18px 0;
     color: var(--text-secondary);
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.7;
 }
 
@@ -185,9 +185,9 @@ li {
     color: var(--card-bg);
     border: 1px solid var(--text-color);
     border-radius: 3px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.15s;
@@ -206,9 +206,9 @@ li {
     color: var(--text-color);
     border: 1px solid var(--text-color);
     border-radius: 3px;
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-family: inherit;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.15s;
@@ -268,13 +268,13 @@ li {
 
 .footer span {
     color: var(--text-muted);
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .footer a {
     color: var(--text-muted);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 15px;
     transition: color 0.2s;
 }
 
@@ -293,11 +293,11 @@ li {
     }
 
     h1 {
-        font-size: 24px;
+        font-size: 30px;
     }
 
     h2 {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     .nav-links {
@@ -305,7 +305,7 @@ li {
     }
 
     .nav-link {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .footer {
