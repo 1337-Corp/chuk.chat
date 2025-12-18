@@ -1,0 +1,11 @@
+# Robots.txt for chuk.chat
+# Private AI Chat Application
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://chuk.chat/sitemap.xml
+
+# Crawl delay (optional, helps with server load)
+Crawl-delay: 1

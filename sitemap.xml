@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- English Pages -->
+  <url>
+    <loc>https://chuk.chat/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/index-de.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chuk.chat/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/pricing.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/pricing-de.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/downloads.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/downloads.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/downloads-de.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/support.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/support.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/support-de.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/privacy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/privacy-de.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/terms.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/terms-de.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/impressum.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- German Pages -->
+  <url>
+    <loc>https://chuk.chat/index-de.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/index-de.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://chuk.chat/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/pricing-de.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/pricing-de.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/downloads-de.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/downloads.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/downloads-de.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/support-de.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/support.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/support-de.html"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/privacy-de.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/privacy-de.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+  <url>
+    <loc>https://chuk.chat/terms-de.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://chuk.chat/terms.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://chuk.chat/terms-de.html"/>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
