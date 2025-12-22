@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+<head>
+    {{- partial "head.html" . -}}
+</head>
+<body{{ with .Params.bodyClass }} class="{{ . }}"{{ end }}>
+    {{- partial "nav.html" . -}}
+
+    <div class="container">
+        {{- block "main" . }}{{- end }}
+
+        {{- partial "footer.html" . -}}
+    </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('open');
+        }
+    </script>
+    {{- block "scripts" . }}{{- end }}
+</body>
+</html>

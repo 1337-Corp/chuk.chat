@@ -1,0 +1,42 @@
+baseURL = 'https://chuk.chat/'
+languageCode = 'en'
+title = 'Chuk Chat'
+defaultContentLanguage = 'en'
+defaultContentLanguageInSubdir = false
+
+[languages]
+  [languages.en]
+    languageCode = 'en'
+    languageName = 'EN'
+    weight = 1
+    [languages.en.params]
+      locale = 'en_US'
+
+  [languages.de]
+    languageCode = 'de'
+    languageName = 'DE'
+    weight = 2
+    [languages.de.params]
+      locale = 'de_DE'
+
+[params]
+  description = 'Private AI Chat | Secure & Anonymous AI Assistant'
+  author = 'Chuk Development'
+
+[permalinks]
+  [permalinks.page]
+    pricing = '/pricing/'
+    downloads = '/downloads/'
+    support = '/support/'
+    privacy = '/privacy/'
+    terms = '/terms/'
+    impressum = '/impressum/'
+    dl = '/dl/'
+    subscription = '/subscription/'
+
+[outputs]
+  home = ['HTML']
+  page = ['HTML']
+
+[build]
+  writeStats = false

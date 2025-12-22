@@ -1,0 +1,74 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ .Title }}{{ if not .IsHome }} — Chuk Chat{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+{{- with .Params.keywords }}
+<meta name="keywords" content="{{ . }}">
+{{- end }}
+<meta name="robots" content="index, follow">
+<meta name="author" content="{{ .Site.Params.author }}">
+
+<!-- Canonical and Language -->
+<link rel="canonical" href="{{ .Permalink }}">
+{{- if .IsTranslated }}
+{{- range .Translations }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+{{- end }}
+<link rel="alternate" hreflang="{{ .Lang }}" href="{{ .Permalink }}">
+{{- end }}
+<link rel="alternate" hreflang="x-default" href="{{ .Site.BaseURL }}">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:image" content="{{ .Site.BaseURL }}desktop.png">
+<meta property="og:locale" content="{{ .Site.Language.Params.locale }}">
+{{- range .Translations }}
+<meta property="og:locale:alternate" content="{{ .Site.Language.Params.locale }}">
+{{- end }}
+<meta property="og:site_name" content="Chuk Chat">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ .Permalink }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta name="twitter:image" content="{{ .Site.BaseURL }}desktop.png">
+
+{{- if .IsHome }}
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Chuk Chat",
+    "applicationCategory": "CommunicationApplication",
+    "operatingSystem": "Windows, macOS, Linux, iOS, Android",
+    "description": "Private AI chat application with no data mining, no tracking, and full encryption. Powered by transparent open-weight AI models.",
+    "url": "{{ .Site.BaseURL }}",
+    "offers": {
+        "@type": "Offer",
+        "price": "20",
+        "priceCurrency": "EUR",
+        "priceValidUntil": "2026-12-31"
+    },
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "ratingCount": "1"
+    },
+    "author": {
+        "@type": "Organization",
+        "name": "Chuk Development",
+        "url": "https://chuk.dev"
+    },
+    "keywords": "private AI chat, secure AI, anonymous chatbot, encrypted AI, privacy AI assistant"
+}
+</script>
+{{- end }}
+
+{{ $styles := resources.Get "css/styles.css" }}
+<link rel="stylesheet" href="{{ $styles.Permalink }}">
+{{- block "head" . }}{{- end }}

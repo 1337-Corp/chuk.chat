@@ -1,0 +1,62 @@
+<!-- Top Navigation Bar -->
+<nav class="top-bar">
+    <div class="nav-container">
+        <a href="{{ "/" | relLangURL }}" class="logo">Chuk Chat</a>
+        <div style="display: flex; align-items: center; gap: 32px;">
+            <div class="nav-links">
+                <a href="{{ "pricing" | relLangURL }}" class="nav-link{{ if eq .Section "pricing" }} active{{ end }}">{{ if eq .Lang "de" }}Preise{{ else }}Pricing{{ end }}</a>
+                <a href="{{ "downloads" | relLangURL }}" class="nav-link{{ if eq .Section "downloads" }} active{{ end }}">Downloads</a>
+                <a href="{{ "support" | relLangURL }}" class="nav-link{{ if eq .Section "support" }} active{{ end }}">{{ if eq .Lang "de" }}Support{{ else }}Support{{ end }}</a>
+            </div>
+            <div class="lang-switcher">
+                {{- $currentPage := . -}}
+                {{- range .Site.Languages -}}
+                {{- $langURL := "" -}}
+                {{- if $currentPage.IsTranslated -}}
+                    {{- range $currentPage.Translations -}}
+                        {{- if eq .Lang $.Lang -}}
+                            {{- $langURL = .Permalink -}}
+                        {{- end -}}
+                    {{- end -}}
+                {{- end -}}
+                {{- if eq $currentPage.Lang .Lang -}}
+                <a href="{{ $currentPage.Permalink }}" class="lang-btn active" title="{{ .LanguageName }}">{{ .LanguageName }}</a>
+                {{- else if $langURL -}}
+                <a href="{{ $langURL }}" class="lang-btn" title="{{ .LanguageName }}">{{ .LanguageName }}</a>
+                {{- else -}}
+                <a href="{{ .Lang | printf "/%s/" }}" class="lang-btn" title="{{ .LanguageName }}">{{ .LanguageName }}</a>
+                {{- end -}}
+                {{- end }}
+            </div>
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+    </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="{{ "pricing" | relLangURL }}"{{ if eq .Section "pricing" }} class="active"{{ end }}>{{ if eq .Lang "de" }}Preise{{ else }}Pricing{{ end }}</a>
+    <a href="{{ "downloads" | relLangURL }}"{{ if eq .Section "downloads" }} class="active"{{ end }}>Downloads</a>
+    <a href="{{ "support" | relLangURL }}"{{ if eq .Section "support" }} class="active"{{ end }}>{{ if eq .Lang "de" }}Support{{ else }}Support{{ end }}</a>
+    <div class="mobile-lang">
+        {{- $currentPage := . -}}
+        {{- range .Site.Languages -}}
+        {{- $langURL := "" -}}
+        {{- if $currentPage.IsTranslated -}}
+            {{- range $currentPage.Translations -}}
+                {{- if eq .Lang $.Lang -}}
+                    {{- $langURL = .Permalink -}}
+                {{- end -}}
+            {{- end -}}
+        {{- end -}}
+        {{- if eq $currentPage.Lang .Lang -}}
+        <a href="{{ $currentPage.Permalink }}" class="active">{{ .LanguageName }}</a>
+        {{- else if $langURL -}}
+        <a href="{{ $langURL }}">{{ .LanguageName }}</a>
+        {{- else -}}
+        <a href="{{ .Lang | printf "/%s/" }}">{{ .LanguageName }}</a>
+        {{- end -}}
+        {{- end }}
+    </div>
+</div>

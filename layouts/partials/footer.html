@@ -1,0 +1,8 @@
+<footer class="footer">
+    <span>&copy; {{ now.Year }} <a href="https://chuk.dev">Chuk Development</a></span>
+    <a href="{{ "privacy" | relLangURL }}">{{ if eq .Lang "de" }}Datenschutz{{ else }}Privacy Policy{{ end }}</a>
+    <a href="{{ "terms" | relLangURL }}">{{ if eq .Lang "de" }}AGB{{ else }}Terms of Service{{ end }}</a>
+    <a href="{{ "impressum" | relLangURL }}">Impressum</a>
+    <a href="https://status.chuk.chat/status/chukchat" target="_blank">Status</a>
+    <img src="/badge_chuk_chat.gif" alt="Chuk Chat" style="height: 31px;">
+</footer>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ .Lang }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subscription Status — Chuk Chat</title>
+    <title>{{ .Title }}</title>
     <style>
         :root {
             --bg-color: #09090b;
@@ -38,7 +38,6 @@
             padding-top: var(--top-bar-height);
         }
 
-        /* Top Navigation Bar */
         .top-bar {
             position: fixed;
             top: 0;
@@ -88,7 +87,6 @@
             font-size: 0.95rem;
             font-weight: 500;
             transition: all 0.2s;
-            position: relative;
         }
 
         .nav-link:hover {
@@ -224,15 +222,13 @@
     </style>
 </head>
 <body>
-
-    <!-- Top Navigation Bar -->
     <nav class="top-bar">
         <div class="nav-container">
-            <a href="./index.html" class="logo">Chuk Chat</a>
+            <a href="{{ "/" | relLangURL }}" class="logo">Chuk Chat</a>
             <div class="nav-links">
-                <a href="./pricing.html" class="nav-link">Pricing</a>
-                <a href="./downloads.html" class="nav-link">Downloads</a>
-                <a href="./support.html" class="nav-link">Support</a>
+                <a href="{{ "pricing" | relLangURL }}" class="nav-link">{{ if eq .Lang "de" }}Preise{{ else }}Pricing{{ end }}</a>
+                <a href="{{ "downloads" | relLangURL }}" class="nav-link">Downloads</a>
+                <a href="{{ "support" | relLangURL }}" class="nav-link">Support</a>
             </div>
         </div>
     </nav>
@@ -244,39 +240,35 @@
     </div>
 
     <script>
-        // Parse URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         const isSuccess = urlParams.get('success') === 'true';
         const statusContent = document.getElementById('status-content');
 
         if (isSuccess) {
-            // Success state
             statusContent.innerHTML = `
                 <div class="status-icon">🎉</div>
-                <h1 class="success-accent">Payment Successful!</h1>
+                <h1 class="success-accent">{{ .Params.success_title }}</h1>
             `;
         } else {
-            // Failure state
             statusContent.innerHTML = `
                 <div class="status-icon">❌</div>
-                <h1 class="error-accent">Payment Failed</h1>
-                <p>We encountered an issue processing your payment. Don't worry, you have not been charged.</p>
+                <h1 class="error-accent">{{ .Params.error_title }}</h1>
+                <p>{{ .Params.error_message }}</p>
 
                 <div class="details">
-                    <h3>Common Issues:</h3>
+                    <h3>{{ .Params.issues_title }}</h3>
                     <ul>
-                        <li>Insufficient funds in your account</li>
-                        <li>Card details entered incorrectly</li>
-                        <li>Payment was declined by your bank</li>
-                        <li>Connection issue during checkout</li>
+                        {{ range .Params.issues }}
+                        <li>{{ . }}</li>
+                        {{ end }}
                     </ul>
                 </div>
 
                 <div style="margin-top: 32px;">
-                    <a href="./pricing.html" class="cta-button">Try Again</a>
+                    <a href="{{ "pricing" | relLangURL }}" class="cta-button">{{ .Params.try_again }}</a>
                 </div>
                 <div>
-                    <a href="./support.html" class="secondary-button">Contact Support →</a>
+                    <a href="{{ "support" | relLangURL }}" class="secondary-button">{{ .Params.contact_support }} →</a>
                 </div>
             `;
         }

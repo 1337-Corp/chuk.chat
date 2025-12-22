@@ -1,0 +1,41 @@
+{{ define "main" }}
+<h1 style="text-align: center; border-bottom: none; padding-bottom: 0;">{{ .Params.heading }}</h1>
+<p class="subtitle" style="font-size: 15px; color: var(--text-secondary); margin-bottom: 40px; text-align: center; max-width: 500px; margin-left: auto; margin-right: auto;">{{ .Params.subheading }}</p>
+
+<div class="downloads-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; margin-bottom: 40px;">
+    {{ range .Params.platforms }}
+    <div class="download-card" style="background: var(--card-bg); border: 1px solid var(--border-solid); padding: 28px; display: flex; flex-direction: column; align-items: center; text-align: center; transition: all 0.15s;">
+        {{ .icon | safeHTML }}
+        <div style="font-size: 18px; font-weight: bold; margin-bottom: 6px; color: var(--text-color);">{{ .name }}</div>
+        <div style="font-size: 13px; color: var(--text-secondary); margin-bottom: 20px;">{{ .version }}</div>
+        <a href="{{ .link }}" class="download-btn{{ if .disabled }} disabled{{ end }}" style="background: {{ if .disabled }}var(--highlight-bg){{ else }}var(--text-color){{ end }}; color: {{ if .disabled }}var(--text-muted){{ else }}var(--card-bg){{ end }}; text-decoration: none; padding: 10px 20px; font-family: inherit; font-size: 14px; font-weight: bold; width: 100%; text-align: center; border: 1px {{ if .disabled }}dashed var(--border-dotted){{ else }}solid var(--text-color){{ end }};{{ if .disabled }} cursor: not-allowed;{{ end }}">{{ .button }}</a>
+    </div>
+    {{ end }}
+</div>
+{{ end }}
+
+{{ define "head" }}
+<style>
+    .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer {
+        margin-top: auto;
+    }
+    .download-card:hover {
+        border-color: var(--text-color);
+    }
+    .download-btn:hover:not(.disabled) {
+        background: var(--accent) !important;
+        border-color: var(--accent) !important;
+    }
+    @media (max-width: 600px) {
+        .downloads-grid {
+            grid-template-columns: 1fr !important;
+        }
+    }
+</style>
+{{ end }}

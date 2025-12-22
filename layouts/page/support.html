@@ -1,0 +1,31 @@
+{{ define "main" }}
+<h1 style="border-bottom: none; padding-bottom: 0;">{{ .Params.heading }}</h1>
+<p class="subtitle" style="font-size: 15px; color: var(--text-secondary); margin-bottom: 40px; max-width: 450px;">{{ .Params.subheading }}</p>
+
+<div class="support-card" style="background: var(--card-bg); border: 1px solid var(--border-solid); padding: 32px; width: 100%; max-width: 400px; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+    <div class="icon-circle" style="width: 64px; height: 64px; background: var(--highlight-bg); display: flex; align-items: center; justify-content: center; color: var(--text-color); border: 1px dashed var(--border-dotted);">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+    </div>
+
+    <a href="mailto:support@chuk.dev" style="font-size: 20px; color: var(--accent); text-decoration: none; font-weight: bold;">support@chuk.dev</a>
+</div>
+{{ end }}
+
+{{ define "head" }}
+<style>
+    .container {
+        text-align: center;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer {
+        margin-top: auto;
+    }
+    .support-card:hover {
+        border-color: var(--text-color);
+    }
+</style>
+{{ end }}

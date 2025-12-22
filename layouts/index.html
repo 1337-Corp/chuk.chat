@@ -1,0 +1,78 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<div class="two-column-section" style="margin-top: 40px;">
+    <div class="content-column">
+        <h1>{{ .Params.hero_title | safeHTML }}</h1>
+        <p class="subtitle">{{ .Params.hero_subtitle | safeHTML }}</p>
+    </div>
+
+    <div class="screenshot-container" style="width: 100%;">
+        <img src="/desktop.png" alt="Chuk Chat Desktop Interface">
+    </div>
+</div>
+
+<!-- Waitlist Form -->
+<div id="waitlist" class="waitlist-container">
+    <div id="form-wrapper">
+        <iframe name="hidden-iframe" id="hidden-iframe" style="display: none;"></iframe>
+
+        <form id="waitlist-form" class="waitlist-form" method="post" action="https://mail.chuk.chat/subscription/form" target="hidden-iframe">
+            <input type="hidden" name="nonce" />
+            <input type="hidden" name="l" value="2bb51e2c-0567-44e7-9fac-26e1453e0067" />
+
+            <input type="email" name="email" placeholder="{{ .Params.form_placeholder }}" required>
+            <button type="submit" id="submit-btn">{{ .Params.form_button }}</button>
+        </form>
+    </div>
+
+    <div id="success-message" class="success-message">
+        {{ .Params.form_success }}
+    </div>
+</div>
+
+
+<!-- Why Chuk Chat? -->
+<div class="section">
+    <h2>{{ .Params.features_title }}</h2>
+    <div class="features-grid">
+        {{ range .Params.features }}
+        <div class="feature-card">
+            <h3>{{ .title }}</h3>
+            <p>{{ .description }}</p>
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<!-- Your Data Stays Yours -->
+<div class="section text-block">
+    <h2>{{ .Params.data_title }}</h2>
+    <p>{{ .Params.data_text | safeHTML }}</p>
+</div>
+
+<!-- Try It Out -->
+<div class="section text-block">
+    <h2>{{ .Params.try_title }}</h2>
+    <p>{{ .Params.try_text | safeHTML }}</p>
+</div>
+{{ end }}
+
+{{ define "scripts" }}
+<script>
+    const form = document.getElementById('waitlist-form');
+    const formWrapper = document.getElementById('form-wrapper');
+    const successMessage = document.getElementById('success-message');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', (e) => {
+        submitBtn.disabled = true;
+        const originalText = submitBtn.innerText;
+        submitBtn.innerText = '{{ if eq .Lang "de" }}Wird eingetragen...{{ else }}Joining...{{ end }}';
+
+        setTimeout(() => {
+            formWrapper.style.display = 'none';
+            successMessage.style.display = 'block';
+        }, 1000);
+    });
+</script>
+{{ end }}
