@@ -9,24 +9,16 @@
                 <a href="{{ "support" | relLangURL }}" class="nav-link{{ if eq .Section "support" }} active{{ end }}">{{ if eq .Lang "de" }}Support{{ else }}Support{{ end }}</a>
             </div>
             <div class="lang-switcher">
-                {{- $currentPage := . -}}
-                {{- range .Site.Languages -}}
-                {{- $langURL := "" -}}
-                {{- if $currentPage.IsTranslated -}}
-                    {{- range $currentPage.Translations -}}
-                        {{- if eq .Lang $.Lang -}}
-                            {{- $langURL = .Permalink -}}
-                        {{- end -}}
-                    {{- end -}}
-                {{- end -}}
-                {{- if eq $currentPage.Lang .Lang -}}
-                <a href="{{ $currentPage.Permalink }}" class="lang-btn active" title="{{ .LanguageName }}">{{ .LanguageName }}</a>
-                {{- else if $langURL -}}
-                <a href="{{ $langURL }}" class="lang-btn" title="{{ .LanguageName }}">{{ .LanguageName }}</a>
+                {{- if eq .Lang "en" -}}
+                <a href="{{ .Permalink }}" class="lang-btn active" title="English">EN</a>
                 {{- else -}}
-                <a href="{{ .Lang | printf "/%s/" }}" class="lang-btn" title="{{ .LanguageName }}">{{ .LanguageName }}</a>
+                <a href="{{ with .Translations }}{{ (index . 0).Permalink }}{{ else }}/en/{{ end }}" class="lang-btn" title="English">EN</a>
                 {{- end -}}
-                {{- end }}
+                {{- if eq .Lang "de" -}}
+                <a href="{{ .Permalink }}" class="lang-btn active" title="Deutsch">DE</a>
+                {{- else -}}
+                <a href="{{ with .Translations }}{{ (index . 0).Permalink }}{{ else }}/de/{{ end }}" class="lang-btn" title="Deutsch">DE</a>
+                {{- end -}}
             </div>
         </div>
         <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
@@ -40,23 +32,15 @@
     <a href="{{ "downloads" | relLangURL }}"{{ if eq .Section "downloads" }} class="active"{{ end }}>Downloads</a>
     <a href="{{ "support" | relLangURL }}"{{ if eq .Section "support" }} class="active"{{ end }}>{{ if eq .Lang "de" }}Support{{ else }}Support{{ end }}</a>
     <div class="mobile-lang">
-        {{- $currentPage := . -}}
-        {{- range .Site.Languages -}}
-        {{- $langURL := "" -}}
-        {{- if $currentPage.IsTranslated -}}
-            {{- range $currentPage.Translations -}}
-                {{- if eq .Lang $.Lang -}}
-                    {{- $langURL = .Permalink -}}
-                {{- end -}}
-            {{- end -}}
-        {{- end -}}
-        {{- if eq $currentPage.Lang .Lang -}}
-        <a href="{{ $currentPage.Permalink }}" class="active">{{ .LanguageName }}</a>
-        {{- else if $langURL -}}
-        <a href="{{ $langURL }}">{{ .LanguageName }}</a>
+        {{- if eq .Lang "en" -}}
+        <a href="{{ .Permalink }}" class="active">EN</a>
         {{- else -}}
-        <a href="{{ .Lang | printf "/%s/" }}">{{ .LanguageName }}</a>
+        <a href="{{ with .Translations }}{{ (index . 0).Permalink }}{{ else }}/en/{{ end }}">EN</a>
         {{- end -}}
-        {{- end }}
+        {{- if eq .Lang "de" -}}
+        <a href="{{ .Permalink }}" class="active">DE</a>
+        {{- else -}}
+        <a href="{{ with .Translations }}{{ (index . 0).Permalink }}{{ else }}/de/{{ end }}">DE</a>
+        {{- end -}}
     </div>
 </div>
