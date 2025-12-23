@@ -1,0 +1,12 @@
+{{ define "main" }}
+<div style="text-align: center; padding: 80px 20px;">
+    <div style="font-size: 120px; font-weight: bold; color: var(--text-muted); line-height: 1;">404</div>
+    <h1 style="border-bottom: none; padding-bottom: 0; margin-top: 20px;">{{ if eq .Lang "de" }}Seite nicht gefunden{{ else }}Page Not Found{{ end }}</h1>
+    <p style="max-width: 400px; margin: 20px auto;">
+        {{ if eq .Lang "de" }}Die Seite, die du suchst, existiert nicht oder wurde verschoben.{{ else }}The page you're looking for doesn't exist or has been moved.{{ end }}
+    </p>
+    <a href="{{ "/" | relLangURL }}" class="btn-primary" style="margin-top: 20px;">
+        {{ if eq .Lang "de" }}Zurück zur Startseite{{ else }}Back to Homepage{{ end }}
+    </a>
+</div>
+{{ end }}
